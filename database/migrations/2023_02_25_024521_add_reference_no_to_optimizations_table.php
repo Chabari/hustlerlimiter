@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('optimizations', function (Blueprint $table) {
+            //
+            $table->string('reference_no')->default('none');
+            $table->string('mpesa_code')->default('none');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('optimizations', function (Blueprint $table) {
+            //
+            $table->dropColumn('reference_no');
+            $table->dropColumn('mpesa_code');
+        });
+    }
+};
+
